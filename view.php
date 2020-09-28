@@ -85,46 +85,5 @@ include_once 'connection.php';
 			<div class="clearfix"></div>
 
 		</div>
-
-		<?php 
-			$sql_date="SELECT distinct date FROM `attendance_records`;";
-			$result_date=mysqli_query($conn ,$sql_date);
-			while($row_date= mysqli_fetch_assoc($result_date)){                 
-		?>
-		<label class="labeldate"><?php echo $row_date['date']; ?></label>       <!--DATE-->
-		
-
-		<table class="table1">	
-			<thead>															<!--Attendance Record -->
-				<tr>
-					<th>Roll No</th>
-					<th>Name</th>
-					<th>Status</th>
-				</tr>
-			</thead>
-			<?php 
-			$date=$row_date['date'];
-			$sql="SELECT * FROM `attendance_records`Where date='$date'";
-			$result=mysqli_query($conn ,$sql);
-			$serial_number=0;
-			$counter=0;
-			while($row= mysqli_fetch_assoc($result)){
-				$serial_number++;
-		?>
-		
-
-			<tr>
-				<td><?php echo $row['roll_number']; ?></td>
-				<td><?php echo $row['student_name']; ?></td>
-				<td><?php echo $row['attendance_status']; ?></td>
-			</tr>
-
-
-		<?php $counter++;
-		}?>
-		</table>
-		<?php } ?>
-
-
 		</body>
 </html>

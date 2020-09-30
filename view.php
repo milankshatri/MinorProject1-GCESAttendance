@@ -9,6 +9,7 @@ include_once 'connection.php';
 	<link rel="stylesheet" type="text/css" href="CSS/calender.css">
 </head>
 <body>
+	<div class="main">
 
 	<header>
 		<div class="navigation">	
@@ -46,7 +47,29 @@ include_once 'connection.php';
       </div>
     </div>
 	 <script src="JS/calender.js"></script>
-
+	 <div class="contain">
+			<h1>Attendance For Batch :</h1>
+			<p>
+		<form action="Home.php" method="POST">
+			<div class="batchselector">
+				<select id="batch_select" class="batch" name="batch_name1" onchange="populate('batch_select','batch_name')">
+						<option disabled selected value="error">Choose Your Batch</option> 
+					
+					<?php 
+						$sql_select_batch="SELECT * FROM `batch_list`;";
+						$result_batch=mysqli_query($conn ,$sql_select_batch);
+						while($row= mysqli_fetch_assoc($result_batch)){         
+		   			?>
+					<option required value="<?php echo $row['batchname']?>" name="option_value" >       <!-- Batch Select Option Menu-->
+						<?php echo $row['batchname'] ;?>
+					</option>
+					<?php }?>
+			</select>
+			<input class="btn1" type="submit" name="batch_submit" value="Enter"  >
+		</form>
+						</p>
+	 </div>
+					<div class="phpclass">
 		<?php 
 			$sql_date="SELECT distinct date FROM `bese2016_attendance_record`;";
 			$result_date=mysqli_query($conn ,$sql_date);
@@ -85,7 +108,8 @@ include_once 'connection.php';
 		}?>
 		</table>
 		<?php } ?>
+		</div>
 
-
+</
 		</body>
 </html>

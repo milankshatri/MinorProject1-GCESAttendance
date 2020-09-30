@@ -6,6 +6,7 @@
   color: black;
 }
 
+
 html {
   font-size: 62.5%;
 }
@@ -18,7 +19,6 @@ html {
   left: 300px; 
   top: 150px;
   color: #eee;
-  display: flex;
   justify-content: left;
   align-items: left;
 }
@@ -115,4 +115,18 @@ html {
 
 .today {
   background-color: #00beff;  
+}
+.contain{
+  position: relative;
+  display: flex;
+  top: 80px;
+  left: 700px;
+  font-family: 'poppins',sans-serif;
+}
+.phpclass{
+  position: absolute;
+  display: inline-block;
+  top: 30px;
+  left: -900px;
+  font-family: 'poppins',sans-serif;
 }
